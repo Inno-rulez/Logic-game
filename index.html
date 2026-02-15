@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go to Class - Logic Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <span>🎓 Find My Class</span>
+                <div class="score-display">Score: <span id="score">0</span></div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div class="game-screen">
+            <div class="game-board" id="gameBoard"></div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="bottom-section">
+            <!-- Program Section -->
+            <div class="program-section">
+                <div class="program-title">📝 Program Blocks</div>
+                <div class="program-box" id="programDropZone">
+                    <div class="drop-zone-placeholder">Drag commands here...</div>
+                </div>
+            </div>
+
+            <!-- Commands Section -->
+            <div class="commands-section">
+                <div class="commands-header">
+                    <div class="commands-title">⚙️ Commands</div>
+                    <div class="mode-selector">
+                        <label for="modeSelect">Mode:</label>
+                        <select id="modeSelect">
+                            <option value="basic">Basic</option>
+                            <option value="conditions">Conditions</option>
+                            <option value="loop">Loop</option>
+                        </select>
+                    </div>
+                    <div id="attemptsInfo" style="margin-left:1rem;color:white;font-weight:bold;">Attempts:</div>
+                </div>
+                <div class="commands-box">
+                    <div class="available-commands">
+                        <div class="command-block" draggable="true" data-command="forward">
+                            ⬆️ Go Forward
+                        </div>
+                        <div class="command-block" draggable="true" data-command="turnRight">
+                            ↻ Turn Right
+                        </div>
+                        <div class="command-block" draggable="true" data-command="turnLeft">
+                            ↺ Turn Left
+                        </div>
+                        <div class="command-block loop-only" draggable="true" data-command="repeat">
+                            🔁 Repeat (n)
+                        </div>
+                        <!-- Condition commands (visible only in Conditions mode) -->
+                        <div class="command-block cond-only" draggable="true" data-command="cond_obstacle">
+                            🚧 Until Obstacle Ahead
+                        </div>
+                        <div class="command-block cond-only" draggable="true" data-command="cond_bound">
+                            ↯ Until At Boundary
+                        </div>
+                        <div class="command-block cond-only" draggable="true" data-command="cond_inclass">
+                            🏫 Until In Class
+                        </div>
+                    </div>
+                    <div style="margin-top: 15px; border-top: 1px solid #ddd; padding-top: 10px;">
+                        <button class="command-button" id="runBtn" onclick="runProgram()">▶️ Run Program</button>
+                        <button class="command-button" id="nextBtn" onclick="nextPuzzle()" style="display: none;">➜ Next Puzzle</button>
+                    </div>
+                    <div class="command-list" id="output"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
