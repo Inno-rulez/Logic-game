@@ -1,0 +1,2 @@
+timestamp,mode,user,userid,isAdmin,success,moves
+2026-02-15T13:04:50.052Z,basic,test,t1,false,false,3
